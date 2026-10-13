@@ -1,0 +1,13 @@
+﻿Issue_Type,Reason,Booking_Status,Bookings
+Driver,Customer related issue,Cancelled By Driver,4537
+Driver,More than permitted people in there,Cancelled By Driver,4480
+Driver,The customer was coughing/sick,Cancelled By Driver,4477
+Driver,Personal & Car related issues,Cancelled By Driver,4439
+Incomplete,Vehicle Breakdown,Incomplete,4414
+Incomplete,Other Issue,Incomplete,4409
+Incomplete,Customer Demand,Incomplete,4332
+Customer,Change of plans,Cancelled By Customer,1426
+Customer,Driver is not moving towards pickup location,Cancelled By Customer,1413
+Customer,Driver asked to cancel,Cancelled By Customer,1410
+Customer,Wrong Address,Cancelled By Customer,1388
+Customer,AC is not working,Cancelled By Customer,1371

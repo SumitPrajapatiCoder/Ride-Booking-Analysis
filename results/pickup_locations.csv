@@ -1,0 +1,201 @@
+﻿Pickup_Location,Booking_Status,Bookings
+Area 1,Cancelled By Customer,138
+Area 1,Cancelled By Driver,376
+Area 1,Incomplete,244
+Area 1,Success,1273
+Area 10,Cancelled By Customer,124
+Area 10,Cancelled By Driver,352
+Area 10,Incomplete,273
+Area 10,Success,1200
+Area 11,Cancelled By Customer,129
+Area 11,Cancelled By Driver,331
+Area 11,Incomplete,273
+Area 11,Success,1230
+Area 12,Cancelled By Customer,151
+Area 12,Cancelled By Driver,358
+Area 12,Incomplete,274
+Area 12,Success,1268
+Area 13,Cancelled By Customer,153
+Area 13,Cancelled By Driver,371
+Area 13,Incomplete,277
+Area 13,Success,1271
+Area 14,Cancelled By Customer,138
+Area 14,Cancelled By Driver,333
+Area 14,Incomplete,277
+Area 14,Success,1193
+Area 15,Cancelled By Customer,149
+Area 15,Cancelled By Driver,348
+Area 15,Incomplete,289
+Area 15,Success,1225
+Area 16,Cancelled By Customer,136
+Area 16,Cancelled By Driver,360
+Area 16,Incomplete,255
+Area 16,Success,1229
+Area 17,Cancelled By Customer,150
+Area 17,Cancelled By Driver,377
+Area 17,Incomplete,237
+Area 17,Success,1314
+Area 18,Cancelled By Customer,130
+Area 18,Cancelled By Driver,354
+Area 18,Incomplete,257
+Area 18,Success,1190
+Area 19,Cancelled By Customer,140
+Area 19,Cancelled By Driver,372
+Area 19,Incomplete,268
+Area 19,Success,1257
+Area 2,Cancelled By Customer,143
+Area 2,Cancelled By Driver,352
+Area 2,Incomplete,251
+Area 2,Success,1191
+Area 20,Cancelled By Customer,125
+Area 20,Cancelled By Driver,360
+Area 20,Incomplete,250
+Area 20,Success,1214
+Area 21,Cancelled By Customer,143
+Area 21,Cancelled By Driver,379
+Area 21,Incomplete,244
+Area 21,Success,1271
+Area 22,Cancelled By Customer,155
+Area 22,Cancelled By Driver,337
+Area 22,Incomplete,251
+Area 22,Success,1214
+Area 23,Cancelled By Customer,136
+Area 23,Cancelled By Driver,364
+Area 23,Incomplete,264
+Area 23,Success,1177
+Area 24,Cancelled By Customer,139
+Area 24,Cancelled By Driver,386
+Area 24,Incomplete,298
+Area 24,Success,1278
+Area 25,Cancelled By Customer,132
+Area 25,Cancelled By Driver,366
+Area 25,Incomplete,261
+Area 25,Success,1234
+Area 26,Cancelled By Customer,142
+Area 26,Cancelled By Driver,370
+Area 26,Incomplete,270
+Area 26,Success,1188
+Area 27,Cancelled By Customer,129
+Area 27,Cancelled By Driver,365
+Area 27,Incomplete,274
+Area 27,Success,1276
+Area 28,Cancelled By Customer,136
+Area 28,Cancelled By Driver,360
+Area 28,Incomplete,273
+Area 28,Success,1267
+Area 29,Cancelled By Customer,137
+Area 29,Cancelled By Driver,361
+Area 29,Incomplete,266
+Area 29,Success,1244
+Area 3,Cancelled By Customer,152
+Area 3,Cancelled By Driver,350
+Area 3,Incomplete,270
+Area 3,Success,1239
+Area 30,Cancelled By Customer,145
+Area 30,Cancelled By Driver,364
+Area 30,Incomplete,250
+Area 30,Success,1181
+Area 31,Cancelled By Customer,136
+Area 31,Cancelled By Driver,351
+Area 31,Incomplete,269
+Area 31,Success,1247
+Area 32,Cancelled By Customer,132
+Area 32,Cancelled By Driver,374
+Area 32,Incomplete,264
+Area 32,Success,1196
+Area 33,Cancelled By Customer,146
+Area 33,Cancelled By Driver,362
+Area 33,Incomplete,243
+Area 33,Success,1263
+Area 34,Cancelled By Customer,139
+Area 34,Cancelled By Driver,323
+Area 34,Incomplete,249
+Area 34,Success,1220
+Area 35,Cancelled By Customer,132
+Area 35,Cancelled By Driver,331
+Area 35,Incomplete,233
+Area 35,Success,1217
+Area 36,Cancelled By Customer,141
+Area 36,Cancelled By Driver,365
+Area 36,Incomplete,279
+Area 36,Success,1266
+Area 37,Cancelled By Customer,156
+Area 37,Cancelled By Driver,371
+Area 37,Incomplete,273
+Area 37,Success,1208
+Area 38,Cancelled By Customer,161
+Area 38,Cancelled By Driver,401
+Area 38,Incomplete,252
+Area 38,Success,1188
+Area 39,Cancelled By Customer,154
+Area 39,Cancelled By Driver,348
+Area 39,Incomplete,255
+Area 39,Success,1282
+Area 4,Cancelled By Customer,153
+Area 4,Cancelled By Driver,375
+Area 4,Incomplete,270
+Area 4,Success,1173
+Area 40,Cancelled By Customer,133
+Area 40,Cancelled By Driver,341
+Area 40,Incomplete,250
+Area 40,Success,1216
+Area 41,Cancelled By Customer,142
+Area 41,Cancelled By Driver,360
+Area 41,Incomplete,272
+Area 41,Success,1267
+Area 42,Cancelled By Customer,147
+Area 42,Cancelled By Driver,360
+Area 42,Incomplete,270
+Area 42,Success,1206
+Area 43,Cancelled By Customer,127
+Area 43,Cancelled By Driver,345
+Area 43,Incomplete,253
+Area 43,Success,1342
+Area 44,Cancelled By Customer,112
+Area 44,Cancelled By Driver,391
+Area 44,Incomplete,274
+Area 44,Success,1235
+Area 45,Cancelled By Customer,139
+Area 45,Cancelled By Driver,376
+Area 45,Incomplete,254
+Area 45,Success,1309
+Area 46,Cancelled By Customer,136
+Area 46,Cancelled By Driver,352
+Area 46,Incomplete,245
+Area 46,Success,1232
+Area 47,Cancelled By Customer,124
+Area 47,Cancelled By Driver,310
+Area 47,Incomplete,276
+Area 47,Success,1246
+Area 48,Cancelled By Customer,166
+Area 48,Cancelled By Driver,333
+Area 48,Incomplete,271
+Area 48,Success,1190
+Area 49,Cancelled By Customer,113
+Area 49,Cancelled By Driver,344
+Area 49,Incomplete,278
+Area 49,Success,1178
+Area 5,Cancelled By Customer,144
+Area 5,Cancelled By Driver,341
+Area 5,Incomplete,251
+Area 5,Success,1319
+Area 50,Cancelled By Customer,142
+Area 50,Cancelled By Driver,363
+Area 50,Incomplete,260
+Area 50,Success,1201
+Area 6,Cancelled By Customer,143
+Area 6,Cancelled By Driver,356
+Area 6,Incomplete,264
+Area 6,Success,1251
+Area 7,Cancelled By Customer,151
+Area 7,Cancelled By Driver,350
+Area 7,Incomplete,253
+Area 7,Success,1262
+Area 8,Cancelled By Customer,141
+Area 8,Cancelled By Driver,385
+Area 8,Incomplete,290
+Area 8,Success,1246
+Area 9,Cancelled By Customer,146
+Area 9,Cancelled By Driver,379
+Area 9,Incomplete,261
+Area 9,Success,1320

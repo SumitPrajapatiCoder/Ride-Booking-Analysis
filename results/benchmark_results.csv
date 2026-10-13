@@ -1,0 +1,3 @@
+Tool,Rows,Operation,Runtime_Seconds
+Pandas,100000,Booking status aggregation,0.6641
+PySpark,100000,Booking status aggregation,7.4324

@@ -1,0 +1,21 @@
+﻿Payment_Method,Booking_Status,Bookings
+Cash,Cancelled By Customer,2337
+Cash,Cancelled By Driver,6094
+Cash,Incomplete,4423
+Cash,Success,21126
+Credit Card,Cancelled By Customer,169
+Credit Card,Cancelled By Driver,421
+Credit Card,Incomplete,310
+Credit Card,Success,1461
+Debit Card,Cancelled By Customer,39
+Debit Card,Cancelled By Driver,109
+Debit Card,Incomplete,79
+Debit Card,Success,380
+UPI,Cancelled By Customer,1759
+UPI,Cancelled By Driver,4505
+UPI,Incomplete,3322
+UPI,Success,15552
+Unknown,Cancelled By Customer,2704
+Unknown,Cancelled By Driver,6804
+Unknown,Incomplete,5021
+Unknown,Success,23385

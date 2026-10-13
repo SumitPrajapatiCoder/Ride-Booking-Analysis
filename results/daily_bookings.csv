@@ -1,0 +1,45 @@
+﻿Date,Booking_Status,Bookings
+2024-11-02,Cancelled By Customer,373
+2024-11-02,Cancelled By Driver,954
+2024-11-02,Incomplete,705
+2024-11-02,Success,3320
+2024-11-03,Cancelled By Customer,381
+2024-11-03,Cancelled By Driver,980
+2024-11-03,Incomplete,728
+2024-11-03,Success,3356
+2024-11-05,Cancelled By Customer,370
+2024-11-05,Cancelled By Driver,991
+2024-11-05,Incomplete,687
+2024-11-05,Success,3379
+2024-11-09,Cancelled By Customer,383
+2024-11-09,Cancelled By Driver,954
+2024-11-09,Incomplete,708
+2024-11-09,Success,3418
+2024-11-10,Cancelled By Customer,381
+2024-11-10,Cancelled By Driver,952
+2024-11-10,Incomplete,705
+2024-11-10,Success,3254
+2024-11-12,Cancelled By Customer,372
+2024-11-12,Cancelled By Driver,1016
+2024-11-12,Incomplete,733
+2024-11-12,Success,3391
+2024-11-16,Cancelled By Customer,375
+2024-11-16,Cancelled By Driver,984
+2024-11-16,Incomplete,695
+2024-11-16,Success,3385
+2024-11-17,Cancelled By Customer,366
+2024-11-17,Cancelled By Driver,1005
+2024-11-17,Incomplete,735
+2024-11-17,Success,3343
+2024-11-19,Cancelled By Customer,3158
+2024-11-19,Cancelled By Driver,8181
+2024-11-19,Incomplete,6001
+2024-11-19,Success,28270
+2024-11-23,Cancelled By Customer,446
+2024-11-23,Cancelled By Driver,998
+2024-11-23,Incomplete,752
+2024-11-23,Success,3473
+2024-11-24,Cancelled By Customer,403
+2024-11-24,Cancelled By Driver,918
+2024-11-24,Incomplete,706
+2024-11-24,Success,3315

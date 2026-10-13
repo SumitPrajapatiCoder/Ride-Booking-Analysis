@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Ride Booking Big Data Analytics</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 24px;
+            background: #f1f5f9;
+            color: #1e293b;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            max-width: 1450px;
+            margin: auto;
+        }
+
+        header {
+            margin-bottom: 24px;
+        }
+
+        header h1 {
+            color: #172554;
+            font-size: 29px;
+            margin-bottom: 8px;
+        }
+
+        header p,
+        .muted {
+            color: #64748b;
+            font-size: 14px;
+        }
+
+        h2 {
+            color: #172554;
+            font-size: 19px;
+            margin-top: 0;
+        }
+
+        .card,
+        .filter-form,
+        .kpi {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 2px 8px rgba(15, 23, 42, 0.05);
+        }
+
+        .filter-form {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(145px, 1fr));
+            gap: 14px;
+            margin-bottom: 22px;
+        }
+
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+            gap: 7px;
+        }
+
+        .filter-group label {
+            font-size: 13px;
+            font-weight: bold;
+            color: #334155;
+        }
+
+        .filter-group select,
+        .filter-group input,
+        .filter-group button,
+        .reset {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #cbd5e1;
+            border-radius: 7px;
+            font-size: 13px;
+        }
+
+        .filter-group button {
+            background: #172554;
+            color: white;
+            cursor: pointer;
+        }
+
+        .reset {
+            display: block;
+            text-align: center;
+            text-decoration: none;
+            background: #e2e8f0;
+            color: #172554;
+        }
+
+        .kpis {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));
+            gap: 15px;
+            margin-bottom: 24px;
+        }
+
+        .kpi {
+            border-left: 4px solid #2563eb;
+        }
+
+        .kpi-label {
+            color: #64748b;
+            font-size: 13px;
+        }
+
+        .kpi-value {
+            color: #172554;
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 12px;
+            overflow-wrap: anywhere;
+        }
+
+        .charts {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+            margin-bottom: 22px;
+        }
+
+        .chart-area {
+            position: relative;
+            width: 100%;
+            height: 300px;
+        }
+
+        .section {
+            margin-bottom: 22px;
+        }
+
+        .table-wrap {
+            overflow-x: auto;
+            margin-top: 18px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 500px;
+        }
+
+        th,
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #e2e8f0;
+            text-align: left;
+            font-size: 13px;
+        }
+
+        th {
+            background: #f8fafc;
+            color: #334155;
+        }
+
+        .notice {
+            background: #eff6ff;
+            color: #1e40af;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 13px;
+            margin-bottom: 18px;
+        }
+
+        .empty {
+            padding: 18px 0;
+            color: #64748b;
+            font-size: 14px;
+        }
+
+        .benchmark-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 14px;
+            margin-top: 18px;
+        }
+
+        .metric-box {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            padding: 16px;
+        }
+
+        .metric-box p {
+            margin: 0 0 10px;
+            color: #64748b;
+            font-size: 13px;
+        }
+
+        .metric-box strong {
+            font-size: 23px;
+            color: #172554;
+        }
+
+        footer {
+            text-align: center;
+            color: #64748b;
+            margin: 26px 0 8px;
+            font-size: 12px;
+        }
+
+        @media (max-width: 750px) {
+            body {
+                padding: 12px;
+            }
+
+            .charts {
+                grid-template-columns: 1fr;
+            }
+
+            .chart-area {
+                height: 270px;
+            }
+
+            header h1 {
+                font-size: 23px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <header>
+            <h1>Ride Booking Big Data Analytics</h1>
+            <p>Data processing, performance benchmarking and ride pattern discovery</p>
+        </header>
+
+        {% if not data_available %}
+        <div class="notice">
+            Cleaned data is not available. Run:
+            <code>python pyspark/clean.py</code>
+        </div>
+        {% endif %}
+
+        <!-- FILTERS -->
+        <form method="get" class="filter-form">
+
+            <div class="filter-group">
+                <label for="date">Date</label>
+                <select name="date" id="date">
+                    <option value="">All dates</option>
+                    {% for item in dates %}
+                    <option value="{{ item }}" {% if filters.date == item %}selected{% endif %}>
+                        {{ item }}
+                    </option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <label for="status">Booking Status</label>
+                <select name="status" id="status">
+                    <option value="">All statuses</option>
+                    {% for item in statuses %}
+                    <option value="{{ item }}" {% if filters.status == item %}selected{% endif %}>
+                        {{ item }}
+                    </option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <label for="vehicle">Vehicle</label>
+                <select name="vehicle" id="vehicle">
+                    <option value="">All vehicles</option>
+                    {% for item in vehicles %}
+                    <option value="{{ item }}" {% if filters.vehicle == item %}selected{% endif %}>
+                        {{ item }}
+                    </option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <label for="payment">Payment Method</label>
+                <select name="payment" id="payment">
+                    <option value="">All payment methods</option>
+                    {% for item in payments %}
+                    <option value="{{ item }}" {% if filters.payment == item %}selected{% endif %}>
+                        {{ item }}
+                    </option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <label for="pickup">Pickup Location</label>
+                <select name="pickup" id="pickup">
+                    <option value="">All pickup locations</option>
+                    {% for item in pickups %}
+                    <option value="{{ item }}" {% if filters.pickup == item %}selected{% endif %}>
+                        {{ item }}
+                    </option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <label for="drop">Drop Location</label>
+                <select name="drop" id="drop">
+                    <option value="">All drop locations</option>
+                    {% for item in drops %}
+                    <option value="{{ item }}" {% if filters.drop == item %}selected{% endif %}>
+                        {{ item }}
+                    </option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <label for="hour">Hour (0–23)</label>
+                <input type="number" name="hour" id="hour" min="0" max="23" value="{{ filters.hour|default:'' }}">
+            </div>
+
+            <div class="filter-group">
+                <label>Actions</label>
+                <button type="submit">Apply Filters</button>
+                <a href="/" class="reset">Reset Filters</a>
+            </div>
+        </form>
+
+        <p class="muted">Records matching filters: {{ filtered_count }}</p>
+
+        <!-- DYNAMIC KPI CARDS -->
+        <section class="kpis">
+            {% for label, value in kpis.items %}
+            <article class="kpi">
+                <div class="kpi-label">{{ label }}</div>
+                <div class="kpi-value">{{ value }}</div>
+            </article>
+            {% endfor %}
+        </section>
+
+        <!-- EXISTING ANALYTICS CHARTS -->
+        <section class="charts">
+
+            <article class="card">
+                <h2>Bookings by Status</h2>
+                <div class="chart-area">
+                    <canvas id="statusChart"></canvas>
+                </div>
+            </article>
+
+            <article class="card">
+                <h2>Successful Bookings by Payment</h2>
+                <div class="chart-area">
+                    <canvas id="paymentChart"></canvas>
+                </div>
+            </article>
+
+            <article class="card">
+                <h2>Bookings by Hour</h2>
+                <div class="chart-area">
+                    <canvas id="hourChart"></canvas>
+                </div>
+            </article>
+
+            <article class="card">
+                <h2>Top Pickup Locations</h2>
+                <div class="chart-area">
+                    <canvas id="pickupChart"></canvas>
+                </div>
+            </article>
+        </section>
+
+        <!-- VEHICLE STATUS TABLE -->
+        <section class="card section">
+            <h2>Vehicle-wise Booking Status</h2>
+
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Vehicle</th>
+                            <th>Booking Status</th>
+                            <th>Bookings</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for row in vehicle_rows %}
+                        <tr>
+                            <td>{{ row.vehicle }}</td>
+                            <td>{{ row.status }}</td>
+                            <td>{{ row.count }}</td>
+                        </tr>
+                        {% empty %}
+                        <tr>
+                            <td colspan="3">No matching records found.</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- BENCHMARK SECTION -->
+        <section class="card section">
+            <h2>Pandas vs PySpark Benchmark</h2>
+            <p class="muted">
+                Runtime comparison for booking-status aggregation.
+                Results are measured on the current machine.
+            </p>
+
+            {% if benchmark_rows %}
+            <div class="benchmark-cards">
+                {% for row in benchmark_rows %}
+                <div class="metric-box">
+                    <p>{{ row.tool }} runtime</p>
+                    <strong>{{ row.runtime }} s</strong>
+                    <p style="margin-top:10px;">Rows: {{ row.rows }}</p>
+                </div>
+                {% endfor %}
+            </div>
+
+            <div class="chart-area" style="margin-top:24px;">
+                <canvas id="benchmarkChart"></canvas>
+            </div>
+
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Tool</th>
+                            <th>Rows</th>
+                            <th>Operation</th>
+                            <th>Runtime (seconds)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for row in benchmark_rows %}
+                        <tr>
+                            <td>{{ row.tool }}</td>
+                            <td>{{ row.rows }}</td>
+                            <td>{{ row.operation }}</td>
+                            <td>{{ row.runtime }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            {% else %}
+            <p class="empty">
+                Benchmark results not found. Run:
+                <code>python pyspark/benchmark.py</code>
+            </p>
+            {% endif %}
+        </section>
+
+        <!-- K-MEANS CLUSTERING SECTION -->
+        <section class="card section">
+            <h2>K-Means Ride Pattern Clustering</h2>
+            <p class="muted">
+                Spark MLlib clusters rides based on distance, booking value,
+                VTAT and CTAT. Cluster IDs are algorithm-generated labels.
+            </p>
+
+            {% if cluster_rows %}
+            <div class="chart-area" style="margin-top:20px;">
+                <canvas id="clusterChart"></canvas>
+            </div>
+
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Cluster</th>
+                            <th>Ride Count</th>
+                            <th>Average Distance</th>
+                            <th>Average Booking Value</th>
+                            <th>Average VTAT</th>
+                            <th>Average CTAT</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for row in cluster_rows %}
+                        <tr>
+                            <td>Cluster {{ row.cluster }}</td>
+                            <td>{{ row.ride_count }}</td>
+                            <td>{{ row.avg_distance }}</td>
+                            <td>{{ row.avg_booking_value }}</td>
+                            <td>{{ row.avg_vtat }}</td>
+                            <td>{{ row.avg_ctat }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            {% else %}
+            <p class="empty">
+                Clustering results not found. Run:
+                <code>python pyspark/clustering.py</code>
+            </p>
+            {% endif %}
+        </section>
+
+        <footer>
+            Ride Booking Analytics | Django + PySpark + Spark MLlib + Chart.js
+        </footer>
+
+    </div>
+
+    <!-- Pass Python data safely into JavaScript -->
+    {{ status_rows|json_script:"status-data" }}
+    {{ payment_rows|json_script:"payment-data" }}
+    {{ hourly_rows|json_script:"hour-data" }}
+    {{ pickup_rows|json_script:"pickup-data" }}
+    {{ benchmark_rows|json_script:"benchmark-data" }}
+    {{ cluster_rows|json_script:"cluster-data" }}
+
+    <script>
+        function readData(id) {
+            const element = document.getElementById(id);
+            return element ? JSON.parse(element.textContent) : [];
+        }
+
+        const statusData = readData("status-data");
+        const paymentData = readData("payment-data");
+        const hourData = readData("hour-data");
+        const pickupData = readData("pickup-data");
+        const benchmarkData = readData("benchmark-data");
+        const clusterData = readData("cluster-data");
+
+        function createChart(id, type, labels, values, datasetLabel) {
+            const canvas = document.getElementById(id);
+
+            if (!canvas) return;
+
+            new Chart(canvas, {
+                type: type,
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: datasetLabel,
+                        data: values,
+                        borderWidth: 1,
+                        borderRadius: type === "bar" ? 5 : 0
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: type === "pie" || type === "doughnut",
+                            position: "bottom"
+                        }
+                    },
+                    scales: (type === "bar" || type === "line") ? {
+                        y: {
+                            beginAtZero: true,
+                            ticks: { precision: 0 }
+                        }
+                    } : {}
+                }
+            });
+        }
+
+        // Existing dynamic charts
+        createChart(
+            "statusChart", "doughnut",
+            statusData.map(item => item.label),
+            statusData.map(item => item.value),
+            "Bookings"
+        );
+
+        createChart(
+            "paymentChart", "pie",
+            paymentData.map(item => item.label),
+            paymentData.map(item => item.value),
+            "Successful bookings"
+        );
+
+        createChart(
+            "hourChart", "bar",
+            hourData.map(item => item.label),
+            hourData.map(item => item.value),
+            "Bookings"
+        );
+
+        createChart(
+            "pickupChart", "bar",
+            pickupData.map(item => item.label),
+            pickupData.map(item => item.value),
+            "Bookings"
+        );
+
+        // Pandas vs PySpark benchmark
+        createChart(
+            "benchmarkChart", "bar",
+            benchmarkData.map(item => item.tool),
+            benchmarkData.map(item => item.runtime),
+            "Runtime (seconds)"
+        );
+
+        // K-Means cluster ride counts
+        createChart(
+            "clusterChart", "bar",
+            clusterData.map(item => "Cluster " + item.cluster),
+            clusterData.map(item => item.ride_count),
+            "Number of rides"
+        );
+    </script>
+
+</body>
+
+</html>

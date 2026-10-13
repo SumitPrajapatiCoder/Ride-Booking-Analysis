@@ -1,0 +1,97 @@
+﻿Hour,Booking_Status,Bookings
+0,Cancelled By Customer,309
+0,Cancelled By Driver,745
+0,Incomplete,529
+0,Success,2648
+1,Cancelled By Customer,309
+1,Cancelled By Driver,736
+1,Incomplete,522
+1,Success,2643
+2,Cancelled By Customer,290
+2,Cancelled By Driver,701
+2,Incomplete,544
+2,Success,2488
+3,Cancelled By Customer,265
+3,Cancelled By Driver,736
+3,Incomplete,557
+3,Success,2659
+4,Cancelled By Customer,273
+4,Cancelled By Driver,794
+4,Incomplete,582
+4,Success,2507
+5,Cancelled By Customer,281
+5,Cancelled By Driver,753
+5,Incomplete,515
+5,Success,2462
+6,Cancelled By Customer,315
+6,Cancelled By Driver,728
+6,Incomplete,537
+6,Success,2528
+7,Cancelled By Customer,308
+7,Cancelled By Driver,749
+7,Incomplete,504
+7,Success,2681
+8,Cancelled By Customer,319
+8,Cancelled By Driver,722
+8,Incomplete,550
+8,Success,2477
+9,Cancelled By Customer,283
+9,Cancelled By Driver,795
+9,Incomplete,523
+9,Success,2559
+10,Cancelled By Customer,259
+10,Cancelled By Driver,763
+10,Incomplete,575
+10,Success,2657
+11,Cancelled By Customer,307
+11,Cancelled By Driver,734
+11,Incomplete,510
+11,Success,2585
+12,Cancelled By Customer,292
+12,Cancelled By Driver,759
+12,Incomplete,539
+12,Success,2620
+13,Cancelled By Customer,276
+13,Cancelled By Driver,722
+13,Incomplete,602
+13,Success,2655
+14,Cancelled By Customer,271
+14,Cancelled By Driver,719
+14,Incomplete,573
+14,Success,2662
+15,Cancelled By Customer,294
+15,Cancelled By Driver,762
+15,Incomplete,530
+15,Success,2548
+16,Cancelled By Customer,310
+16,Cancelled By Driver,715
+16,Incomplete,578
+16,Success,2595
+17,Cancelled By Customer,290
+17,Cancelled By Driver,676
+17,Incomplete,530
+17,Success,2570
+18,Cancelled By Customer,279
+18,Cancelled By Driver,778
+18,Incomplete,555
+18,Success,2505
+19,Cancelled By Customer,276
+19,Cancelled By Driver,805
+19,Incomplete,508
+19,Success,2613
+20,Cancelled By Customer,286
+20,Cancelled By Driver,785
+20,Incomplete,525
+20,Success,2538
+21,Cancelled By Customer,316
+21,Cancelled By Driver,752
+21,Incomplete,584
+21,Success,2450
+22,Cancelled By Customer,298
+22,Cancelled By Driver,739
+22,Incomplete,578
+22,Success,2634
+23,Cancelled By Customer,302
+23,Cancelled By Driver,765
+23,Incomplete,605
+23,Success,2620

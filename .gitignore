@@ -1,0 +1,98 @@
+# ==========================================
+# Python
+# ==========================================
+
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Python cache
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# ==========================================
+# Virtual Environment
+# ==========================================
+
+venv/
+env/
+.venv/
+ENV/
+
+# ==========================================
+# Django
+# ==========================================
+
+*.log
+db.sqlite3
+db.sqlite3-journal
+
+# Django static collected files
+staticfiles/
+
+# ==========================================
+# Environment Variables / Secrets
+# ==========================================
+
+.env
+.env.*
+!.env.example
+
+# ==========================================
+# Jupyter Notebook
+# ==========================================
+
+.ipynb_checkpoints/
+
+# ==========================================
+# IDE / Editors
+# ==========================================
+
+.vscode/
+.idea/
+
+# VS Code
+*.code-workspace
+
+# ==========================================
+# OS Files
+# ==========================================
+
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ==========================================
+# Temporary Files
+# ==========================================
+
+*.tmp
+*.temp
+*.bak
+*.swp
+
+# ==========================================
+# Python Build Files
+# ==========================================
+
+build/
+dist/
+*.egg-info/
+
+# ==========================================
+# Large / Generated Data
+# ==========================================
+
+# Ignore generated temporary Spark files
+spark-warehouse/
+
+# Ignore Spark event logs
+spark-events/
+
+# ==========================================
+# Hadoop / Windows Temporary Files
+# ==========================================
+
+winutils.exe
+hadoop.dll

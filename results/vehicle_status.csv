@@ -1,0 +1,29 @@
+﻿Vehicle_Type,Booking_Status,Bookings
+Auto,Cancelled By Customer,1009
+Auto,Cancelled By Driver,2551
+Auto,Incomplete,1966
+Auto,Success,8776
+Bike,Cancelled By Customer,1026
+Bike,Cancelled By Driver,2531
+Bike,Incomplete,1888
+Bike,Success,8914
+Mini,Cancelled By Customer,1040
+Mini,Cancelled By Driver,2570
+Mini,Incomplete,1777
+Mini,Success,8701
+Prime Plus,Cancelled By Customer,1011
+Prime Plus,Cancelled By Driver,2564
+Prime Plus,Incomplete,1887
+Prime Plus,Success,8885
+Prime SUV,Cancelled By Customer,949
+Prime SUV,Cancelled By Driver,2563
+Prime SUV,Incomplete,1894
+Prime SUV,Success,8847
+Prime Sedan,Cancelled By Customer,1001
+Prime Sedan,Cancelled By Driver,2643
+Prime Sedan,Incomplete,1930
+Prime Sedan,Success,8807
+eBike,Cancelled By Customer,972
+eBike,Cancelled By Driver,2511
+eBike,Incomplete,1813
+eBike,Success,8974
